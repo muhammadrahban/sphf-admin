@@ -779,43 +779,49 @@
         }
 
         function updateInvoice(invoiceId) {
-            // Get the updated check_no value
-            var updatedCheckNo = $('#check_no_' + invoiceId).val();
-            // Get the updated transaction_status value
-            var updatedTransactionStatus = $('#transaction_status_' + invoiceId).val();
+    // Get the updated check_no value
+    var updatedCheckNo = $('#check_no_' + invoiceId).val();
+    // Get the updated transaction_status value
+    var updatedTransactionStatus = $('#transaction_status_' + invoiceId).val();
 
-            // Perform AJAX request to update the invoice
-            $.ajax({
-                method: 'POST',
-                url: '/invoice/update/' + invoiceId, // Replace with your actual route
-                data: {
-                    check_no: updatedCheckNo,
-                    transaction_status: updatedTransactionStatus,
-                    _token: '{{ csrf_token() }}' // Add this line to include the CSRF token
-                },
-                success: function(response) {
-                    // Handle the success response
-                    console.log(response);
+    // Get the route name from the meta tag
+    var routeName = $('meta[name="invoice-update-route"]').attr('content');
 
-                    // Show toastr message
-                    toastr.options = {
-                        "closeButton": true,
-                        "progressBar": true,
-                        "positionClass": "toast-top-right",
-                    }
-                    toastr.success(response.message);
+    // Replace the placeholder in the route with the actual invoiceId
+    var url = routeName.replace('__INVOICE_ID__', invoiceId);
 
-                    // Refresh the page after a short delay (e.g., 1 second)
-                    setTimeout(function() {
-                        location.reload(true);
-                    }, 1500);
-                },
-                error: function(error) {
-                    // Handle the error
-                    console.error(error);
-                }
-            });
+    // Perform AJAX request to update the invoice
+    $.ajax({
+        method: 'POST',
+        url: url,
+        data: {
+            check_no: updatedCheckNo,
+            transaction_status: updatedTransactionStatus,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function(response) {
+            // Handle the success response
+            console.log(response);
+
+            // Show toastr message
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+            }
+            toastr.success(response.message);
+
+            // Refresh the page after a short delay (e.g., 1 second)
+            setTimeout(function() {
+                location.reload(true);
+            }, 1500);
+        },
+        error: function(error) {
+            // Handle the error
+            console.error(error);
         }
+    });
+}
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAquzgo847shlU-SpPXLZMgShv6EW9pQmw&callback=initMap"></script>

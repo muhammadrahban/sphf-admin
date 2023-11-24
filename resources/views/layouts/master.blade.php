@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="invoice-update-route" content="{{ route('invoice.update', ['invoice' => '__INVOICE_ID__']) }}">
     <!-- toaster session message -->
     <title>SPHF</title>
     <!-- Favicon icon -->
