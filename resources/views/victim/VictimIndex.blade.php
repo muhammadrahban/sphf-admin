@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $num = 1;
                         @endphp
                         @foreach ($victims as $victim)
@@ -56,7 +56,7 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
@@ -89,37 +89,33 @@
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        function openSurveyModal(victim) {
-            const modal = $('#surveyModal');
-            modal.find('.modal-title').text('Victim Details');
-            modal.find('.modal-body').empty();
+        // function openSurveyModal(victim) {
+        //     const modal = $('#surveyModal');
+        //     modal.find('.modal-title').text('Victim Details');
+        //     modal.find('.modal-body').empty();
 
-            const victimDetails = [
-                'widows',
-                'women_with_disable_husband',
-                'divorced_abandoned_unmarried_older_dependent_on_others',
-                'people_with_disability_physically_or_mentally',
-                'unaccompained_minors_i_e_orphans',
-                'unaccompained_elders_over_the_age_of_60',
-            ];
+        //     const victimDetails = [
+        //         'widows',
+        //         'women_with_disable_husband',
+        //         'divorced_abandoned_unmarried_older_dependent_on_others',
+        //         'people_with_disability_physically_or_mentally',
+        //         'unaccompained_minors_i_e_orphans',
+        //         'unaccompained_elders_over_the_age_of_60',
+        //     ];
 
-            victimDetails.forEach((detail) => {
-                const row = $(
-                '<div class="row mb-2 align-items-center"></div>'); // Added margin-bottom and align-items-center classes
-                const label = $('<div class="col-md-6 text-md-start"><strong>' + capitalizeFirstLetter(detail
-                    .replace(/_/g, ' ')) + ':</strong></div>');
-                const value = $('<div class="col-md-6 text-md-center"><span class="badge bg-' + (victim[detail] == 0 ?
-                    'warning' : 'success') + '">' + (victim[detail] == 0 ? 'No' : 'Yes') + '</span></div>');
-                row.append(label, value);
-                modal.find('.modal-body').append(row);
-            });
+        //     victimDetails.forEach((detail) => {
+        //         const row = $(
+        //         '<div class="row mb-2 align-items-center"></div>'); // Added margin-bottom and align-items-center classes
+        //         const label = $('<div class="col-md-6 text-md-start"><strong>' + capitalizeFirstLetter(detail
+        //             .replace(/_/g, ' ')) + ':</strong></div>');
+        //         const value = $('<div class="col-md-6 text-md-center"><span class="badge bg-' + (victim[detail] == 0 ?
+        //             'warning' : 'success') + '">' + (victim[detail] == 0 ? 'No' : 'Yes') + '</span></div>');
+        //         row.append(label, value);
+        //         modal.find('.modal-body').append(row);
+        //     });
 
-            modal.modal('show');
-        }
-
-
-
-
+        //     modal.modal('show');
+        // }
 
         function swalll(id) {
             event.preventDefault();
@@ -142,60 +138,180 @@
                     }
                 });
         }
-        $(function() {
+
+        // $(function() {
+        //     $('#myTablenanny').DataTable({
+        //         "processing": true,
+        //         "serverSide": true,
+        //         "ajax": {
+        //             "url": "{{ route('victim.index') }}",
+        //             "type": "GET",
+        //         },
+        //         "columns": [
+        //             {"data": "id"},
+        //             {"data": "filled_da_form_id"},
+        //             {"data": "da_cnic"},
+        //             {"data": "da_occupant_name"},
+        //             {"data": "gender"},
+        //             {"data": "tehsil"},
+        //             {"data": "union_council"},
+        //             {"data": "district"},
+        //             {"data": "deh"},
+        //             {
+        //                 "data": null,
+        //                 "render": function (data, type, row) {
+        //                     return '<a href="#" class="openSurveyModalBtn" data-victim=\'' + JSON.stringify(row) + '\'>' +
+        //                        '<i class="fa fa-info-circle" style="font-size: 20px; color: rgb(71, 181, 196)"></i>' +
+        //                        '</a>';
+        //                 }
+        //             },
+        //         ],
+        //         columnDefs: [{
+        //             orderable: false,
+        //             "targets": [9]
+        //         }]
+        //     });
+
+        //     // Event delegation for the button click
+        //     $('#victimTable tbody').on('click', '.openSurveyModalBtn', function (e) {
+        //         e.preventDefault();
+        //         var victimData = $(this).data('victim');
+        //         openSurveyModal(victimData);
+        //     });
+
+        //     var table = $('#example').DataTable({
+        //         "columnDefs": [{
+        //             "visible": false,
+        //             "targets": 2
+        //         }],
+        //         "order": [
+        //             [2, 'asc']
+        //         ],
+        //         "displayLength": 25,
+        //         "drawCallback": function(settings) {
+        //             var api = this.api();
+        //             var rows = api.rows({
+        //                 page: 'current'
+        //             }).nodes();
+        //             var last = null;
+        //             api.column(2, {
+        //                 page: 'current'
+        //             }).data().each(function(group, i) {
+        //                 if (last !== group) {
+        //                     $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group +
+        //                         '</td></tr>');
+        //                     last = group;
+        //                 }
+        //             });
+        //         }
+        //     });
+        //     // Order by the grouping
+        //     $('#example tbody').on('click', 'tr.group', function() {
+        //         var currentOrder = table.order()[0];
+        //         if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+        //             table.order([2, 'desc']).draw();
+        //         } else {
+        //             table.order([2, 'asc']).draw();
+        //         }
+        //     });
+        //     // responsive table
+        //     $('#config-table').DataTable({
+        //         responsive: true
+        //     });
+        //     $('#example23').DataTable({
+        //         dom: 'Bfrtip',
+        //         buttons: [
+        //             'copy', 'csv', 'excel', 'pdf', 'print'
+        //         ]
+        //     });
+        //     $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass(
+        //         'btn btn-primary me-1');
+        // });
+        function openSurveyModal(victim) {
+            const modal = $('#surveyModal');
+            modal.find('.modal-title').text('Victim Details');
+            modal.find('.modal-body').empty();
+
+            const victimDetails = [
+                'widows',
+                'women_with_disable_husband',
+                'divorced_abandoned_unmarried_older_dependent_on_others',
+                'people_with_disability_physically_or_mentally',
+                'unaccompained_minors_i_e_orphans',
+                'unaccompained_elders_over_the_age_of_60',
+            ];
+
+            victimDetails.forEach((detail) => {
+                const row = $('<div class="row mb-2 align-items-center"></div>');
+                const label = $('<div class="col-md-6 text-md-start"><strong>' + capitalizeFirstLetter(detail
+                    .replace(/_/g, ' ')) + ':</strong></div>');
+                const value = $('<div class="col-md-6 text-md-center"><span class="badge bg-' + (victim[detail] ==
+                    0 ?
+                    'warning' : 'success') + '">' + (victim[detail] == 0 ? 'No' : 'Yes') + '</span></div>');
+                row.append(label, value);
+                modal.find('.modal-body').append(row);
+            });
+
+            modal.modal('show');
+        }
+
+        $(document).ready(function() {
             $('#myTablenanny').DataTable({
+                "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "{{ route('victim.index') }}",
+            "type": "GET",
+        },
+                "columns": [{
+                        "data": "id"
+                    },
+                    {
+                        "data": "filled_da_form_id"
+                    },
+                    {
+                        "data": "da_cnic"
+                    },
+                    {
+                        "data": "da_occupant_name"
+                    },
+                    {
+                        "data": "gender"
+                    },
+                    {
+                        "data": "tehsil"
+                    },
+                    {
+                        "data": "union_council"
+                    },
+                    {
+                        "data": "district"
+                    },
+                    {
+                        "data": "deh"
+                    },
+                    {
+                        "data": null,
+                        "render": function(data, type, row) {
+                            return '<a href="#" class="openSurveyModalBtn" data-victim=\'' + JSON
+                                .stringify(row) + '\'>' +
+                                '<i class="fa fa-info-circle" style="font-size: 20px; color: rgb(71, 181, 196)"></i>' +
+                                '</a>';
+                        }
+                    },
+                ],
                 columnDefs: [{
                     orderable: false,
                     "targets": [9]
                 }]
             });
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group +
-                                '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
+
+            // Event delegation for the button click
+            $('#myTablenanny tbody').on('click', '.openSurveyModalBtn', function(e) {
+                e.preventDefault();
+                var victimData = $(this).data('victim');
+                openSurveyModal(victimData);
             });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-            // responsive table
-            $('#config-table').DataTable({
-                responsive: true
-            });
-            $('#example23').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
-            $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass(
-                'btn btn-primary me-1');
         });
     </script>
 @endsection
