@@ -15,6 +15,7 @@ use App\Http\Controllers\UserDeviceController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\CustomChangePasswordController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\GeneralDonationController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\VictimController;
 
@@ -43,6 +44,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
     Route::prefix('donation')->group(function () {
         Route::get('/index', [DonationController::class, 'index'])->name('donation.index');
+    });
+    Route::prefix('generaldonation')->group(function () {
+        Route::get('/index', [GeneralDonationController::class, 'index'])->name('generaldonation.index');
     });
 
     Route::prefix('user')->group(function () {

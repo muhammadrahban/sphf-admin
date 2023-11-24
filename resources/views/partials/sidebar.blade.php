@@ -60,20 +60,10 @@
                              <li> <a class="waves-effect waves-dark" title="Offer Management" href="{{Route('donation.index')}}"><i
                                 class="fas fa-heart" aria-hidden="true"></i></i><span
                                          class="hide-menu">Donation Management</span></a>
-                    {{-- <li>
-                    <li> <a class="waves-effect waves-dark" title="Content Management" href="{{ Route('content.list') }}"><i
-                                class="fa fa-tag"></i><span class="hide-menu">Content Management</span></a>
-                    <li> <a class="waves-effect waves-dark" title="Reward Management"
-                            href="{{ Route('reward.list') }}"><i class="fas fa-award"></i><span
-                                class="hide-menu">Reward Management</span></a>
-                                <li> <a title="survey Management" class=" waves-effect waves-dark" href="{{route('survey.list')}}"><i class="fa fa-check-circle"></i><span class="hide-menu">survey Management</span></a>
-                                <li> <a title="product Management" class=" waves-effect waves-dark" href="{{route('product.list')}}"><i class="fas fa-shopping-cart"></i><span class="hide-menu">product Management</span></a>
-                    <li> <a class="waves-effect waves-dark" title="Settings Management"
-                            href="{{ Route('setting.list') }}"><i class=" fas fa-cog"></i><span
-                                class="hide-menu">Settings</span></a>
-                    <li> <a class="waves-effect waves-dark" title="Faqs Management"
-                            href="{{ Route('faqs.list') }}"><i class="fa fa-question"></i><span
-                                class="hide-menu">Faqs Management</span></a> --}}
+                             <li> <a class="waves-effect waves-dark" title="Offer Management" href="{{Route('generaldonation.index')}}"><i
+                                class="fas fa-hand-holding-heart" aria-hidden="true"></i></i><span
+                                         class="hide-menu">General Donation Management</span></a>
+
          </nav>
          <!-- End Sidebar navigation -->
      </div>
