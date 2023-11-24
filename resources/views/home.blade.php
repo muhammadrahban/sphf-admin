@@ -41,10 +41,10 @@
     <div class="col-lg-6 col-md-6">
         <div class="card text-center" style="box-shadow: 0px 0px 14px 3px #cfcfcf;">
             <div class="card-body  " class="text-centar" style="background: linear-gradient(45deg, rgb(243, 198, 198), transparent);border: 1px solid #cdcdcd;">
-                <h4 class="card-subtitle">Offers</h4>
-                <a href="#" class="btn-outline-cyan">
-                    <p class="card-text"style="margin-top: -1%;">Total Offers</p>
-                    <h2 class="card-title">{{$countData['offers']}}</h2>
+                <h4 class="card-subtitle">General Donation</h4>
+                <a href="{{Route('generaldonation.index')}}" class="btn-outline-cyan">
+                    <p class="card-text"style="margin-top: -1%;">Total General Donation</p>
+                    <h2 class="card-title">{{$countData['general_donation']}}</h2>
                 </div>
             </div>
         </a>

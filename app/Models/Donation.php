@@ -21,7 +21,7 @@ class Donation extends Model
      */
     public function victim()
     {
-        return $this->belongsTo(victim::class, 'victim_id');
+        return $this->belongsTo(Victim::class, 'victim_id');
     }
     public function user()
     {

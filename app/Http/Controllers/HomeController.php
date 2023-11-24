@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\booking;
 use App\Models\Donation;
+use App\Models\GeneralDonation;
 use App\Models\Offer;
 use App\Models\Product;
 use App\Models\Reward;
@@ -36,7 +37,7 @@ class HomeController extends Controller
             "user" => user::where('user_type', 'user')->count(),
             "victim" => Victim::count(),
             "donations" => Donation::count(),
-            "offers" => 3,
+            "general_donation" => GeneralDonation::count(),
         ];
         return view('home', compact('countData'));
     }
