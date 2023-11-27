@@ -300,10 +300,12 @@
                         }
                     },
                 ],
+
                 columnDefs: [{
                     orderable: false,
                     "targets": [9]
-                }]
+                }],
+                "searching": true, // Enable searching
             });
 
             // Event delegation for the button click
