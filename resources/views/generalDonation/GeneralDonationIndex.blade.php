@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<<div class="modal" id="surveyModal" tabindex="-1" role="dialog">
+<div class="modal" id="surveyModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="font-size: small; width: 80%; margin-left: 14%;">
             <div class="modal-header bg-primary text-white" style="background: linear-gradient(45deg, #01c0c8c2, transparent);">
